@@ -10,6 +10,6 @@ function submitted(){
         email : useremail.value,
     }
     var strFormat = JSON.stringify(obj)
-    localStorage.setItem('user',strFormat)
+    localStorage.setItem(useremail.value,strFormat)
     console.log(JSON.parse(localStorage.getItem('user')))
 }
