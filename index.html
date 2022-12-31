@@ -44,6 +44,7 @@
                 const parentNode = document.getElementById('listOfUsers');
                 const childHTML = `<li id=${user.email}> ${user.name} - ${user.email}
                                         <button onclick=deleteUser('${user.email}')> Delete User </button>
+                                        <button onclick=editUser('${user.email}')> Edit User </button>
                                      </li>`
 
                 parentNode.innerHTML = parentNode.innerHTML + childHTML;
@@ -55,6 +56,17 @@
                 console.log(emailId)
                 localStorage.removeItem(emailId);
                 removeUserFromScreen(emailId);
+
+            }
+            function editUser(emailId){
+                console.log(emailId)
+                let userObj = JSON.parse(localStorage.getItem('arunmudiraj18@gmail.com'))
+                localStorage.removeItem(emailId);
+                removeUserFromScreen(emailId);
+                document.querySelectorAll('input')[0].value = userObj.name
+                document.querySelectorAll('input')[1].value = userObj.emailId
+                document.querySelectorAll('input')[2].value = userObj.phonenumber
+
 
             }
 
